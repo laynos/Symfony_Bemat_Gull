@@ -1,0 +1,67 @@
+{# app/Resources/views/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <title>{% block title %}Info Ville{% endblock %}</title>
+
+  {% block stylesheets %}
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="/css/blog.css">
+  {% endblock %}
+  <!-- //maxcdn.bootstrapcdn.com/bootstrap/3.2.0 -->
+</head>
+
+<body>
+
+	   <div class="container">
+	  <nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('blog_homepage') }}"> Info Ville </a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-collapsible">
+            <ul class="nav navbar-nav navbar-left">
+				<li class="active"> <a href="{{ path('blog_homepage') }}">Accueil</a> </li>
+			 <li> <a href="{{ path('blog_article_test') }}">Ajouter une nouvelle information</a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="container-fluid" id="section1">
+    <div id="menu" class="col-md-2">
+        <h3>Informations Récentes</h3>
+        {{ render(controller("BlogBundle:Article:menu", {'limit': 3})) }}
+		</div>
+		<div class="row">
+  <div class="col-md-6 .col-md-offset-2">{% block body %}{% endblock %}</div>
+  </div>
+   <hr>
+   
+Copyright &copy; 2015 BLOG &middot; All Rights Reserved &middot; Bemat Souhel & Gull Hassan
+    
+	<hr>
+	
+</section>
+	
+	
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+</body>
+</html>
