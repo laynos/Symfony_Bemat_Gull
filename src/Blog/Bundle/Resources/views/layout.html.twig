@@ -1,0 +1,27 @@
+{# src/Blog/Bundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+ <!--   <div class="container">
+		<div class="nav">
+			<nav class="col-sm-2">
+				<h1>Menu</h1>
+			</nav>
+			<h1>Annonces</h1>
+		</div>
+	</div>
+  <hr>
+-->
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block blog_body %}
+
+  {% endblock %}
+
+{% endblock %}

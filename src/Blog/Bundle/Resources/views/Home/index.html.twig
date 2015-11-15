@@ -1,0 +1,29 @@
+{# src/OC/Blog/Resources/views/Article/index.html.twig #}
+
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block blog_body %}
+
+  <h2>Toutes les informations</h2>
+
+    {% for article in listArticles %}
+       <div class="cadre">
+			<div class="fondArticle">
+			 <a href="{{ path('blog_view', {'id': article.id}) }}" class="titreArticle"><center>{{ article.title }}</center></a>
+				<center>par {{ article.author }},
+        le {{ article.date|date('d/m/Y') }}</center>
+			</div>
+			<div class="panel-body">{{ article.content }}</div>
+		</div>
+
+    {% else %}
+      <li>Aucun article disponible pour le moment.</li>
+	  <li>Cliquez sur "ajouter une nouvelle information" pour allimenté notre BLOG !</li>
+    {% endfor %}
+		 
+
+{% endblock %}
